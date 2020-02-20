@@ -41,7 +41,7 @@ df_new['MSZoning'].value_counts().index[0]
 # output: "RL"
 ```
 ```
-# 如果有缺失值，使用出现频率最高的代替
+# use the most frequently value instead of null.
 for i in cat_ls:
     if df_new[i].isnull().sum() > 0:
         df_new[i].fillna(df_new[i].value_counts().index[0])
@@ -57,12 +57,12 @@ df_new['GarageArea'].isnull().sum()
 ```
 According to the **correlation matrix**, I select the value **greater than** +0.6 and *less than* -0.6. 
 ```
-# 生成数据的相关系数矩阵
+# plot corr matrix
 corrmat = df_new.corr()
 f, ax = plt.subplots(figsize=(20, 10))
 sns.heatmap(corrmat, vmax=0.8, square=True)
 
-# 生成数据的相关系数表
+# show the corr list.
 # 对比Pearson R and filter range [-0.6 - 0.6]
 corr = df_new.corr()
 corr_price = corr["SalePrice"]
