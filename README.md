@@ -13,7 +13,7 @@
 import pandas as pd
 import pandas_profiling
 df = pd.read_csv("")
-df.profile_report()
+pandas_profiling.ProfileReport(df)
 ```
 we see **32 numeric attributes**, **48 categorical attributes** and only **1 boolean attribute**. And the report also show the **missing values** and **zero values**, which are super convenient for further data preprocessing process.
 ### 2. Do Preprocessing
